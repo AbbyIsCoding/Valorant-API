@@ -6,46 +6,46 @@ import axios from 'axios';
 const Agents = () => {
     
   
+        const [savedVoiceLine, setSavedVoiceLine] = useState("")
 
         const [Data, setData] = useState({
           name: '',
           role: '',
           abilities: '',
           photoUrl: '',
-          voiceLine: "",
-      
-      
+          voiceLine: '',
         })
+
         useEffect(() => {
           axios.get('https://valorant-api.com/v1/agents')
             .then(res => {
               var randomNum= Math.floor(Math.random()*res.data.data.length) 
-              console.log(randomNum); 
+              console.log(randomNum)
+              // console.log(randomNum); 
               var CharNum = randomNum; 
               console.log(CharNum);
               
               console.log('Response from main API: ', res) // All info
               console.log('Valorant Data: ', res.data.data) // just the data 
-              // console.log('portraitURL', res.data.data[CharNum].bustPortrait);
-              // console.log('voiceLine', res.data.data[0].voiceLine.mediaList[0].wave) 
-              // console.log('abilities', res.data.data[0].abilities)
-              console.log('voiceLine', res.data.data[CharNum].voiceLine.mediaList[0].wave)
-            
-              
              
-
-
-              
-              
+            
+          
               setData({ 
                   name: res.data.data[CharNum].displayName,
                   role: res.data.data[CharNum].role.displayName,
-                  abilities: res.data.data[CharNum].abilities[0].displayName,
+                  abilities: res.data.data[CharNum].abilities[0].displayName + res.data.data[CharNum].abilities[1].displayName,
                   photoUrl: res.data.data[CharNum].bustPortrait,
                   voiceLine: res.data.data[CharNum].voiceLine.mediaList[0].wave,  
-
                });
-            })
+
+               console.log(Data.voiceLine);
+               console.log('gatheredvoiceline',res.data.data[CharNum].voiceLine.mediaList[0].wave)
+               setSavedVoiceLine(res.data.data[CharNum].voiceLine.mediaList[0].wave)
+          
+              })
+
+            
+
             .catch(err => {
               console.log(err);
             })
@@ -59,12 +59,14 @@ const Agents = () => {
             <img src={Data.photoUrl} width = "300" height = "280" alt={Data.name} />
             
             <audio controls>
-              {Data.voiceLine && (
-                <source src= {Data.voiceLine} />  
+              {savedVoiceLine && (
+                <source src= {savedVoiceLine} />  
               )}
+
             </audio>
 
             <h1>Abilities: {Data.abilities}</h1> 
+            
           
       
           </div>
