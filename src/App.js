@@ -1,10 +1,22 @@
 import logo from './logo.svg';
 import React from 'react'; 
 import './App.css';
-import Agents from './Agents';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
+import Agents from './pages/Agents';
+import Home from './Home';
 
 function App() {
   return (
+    <Router>
+    <Navbar />
+    <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path='/Agents' element={<Agents/>} />
+
+    </Routes>
+    </Router>
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
@@ -22,7 +34,7 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <Agents/>
+ 
   );
 }
 

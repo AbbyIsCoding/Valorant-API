@@ -5,7 +5,6 @@ import axios from 'axios';
 
 const Agents = () => {
     
-  
         const [savedVoiceLine, setSavedVoiceLine] = useState("")
 
         const [Data, setData] = useState({
@@ -33,7 +32,8 @@ const Agents = () => {
               setData({ 
                   name: res.data.data[CharNum].displayName,
                   role: res.data.data[CharNum].role.displayName,
-                  abilities: res.data.data[CharNum].abilities[0].displayName + res.data.data[CharNum].abilities[1].displayName,
+                  abilities: res.data.data[CharNum].abilities[0].displayName + ", " + res.data.data[CharNum].abilities[1].displayName 
+                  + ", " + res.data.data[CharNum].abilities[2].displayName + ", and " + res.data.data[CharNum].abilities[3].displayName,
                   photoUrl: res.data.data[CharNum].bustPortrait,
                   voiceLine: res.data.data[CharNum].voiceLine.mediaList[0].wave,  
                });
@@ -53,7 +53,10 @@ const Agents = () => {
       
         return (
 
+          
+
           <div>
+            {/* <button type="randomize" onclick=  >Click me!</button> */}
             <h1> Name: {Data.name}</h1>
             <h1> Role: {Data.role}</h1>
             <img src={Data.photoUrl} width = "300" height = "280" alt={Data.name} />
@@ -66,7 +69,9 @@ const Agents = () => {
             </audio>
 
             <h1>Abilities: {Data.abilities}</h1> 
+
             
+
           
       
           </div>
