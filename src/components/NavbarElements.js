@@ -2,7 +2,9 @@ import { FaBars } from "react-icons/fa";
 import { NavLink as Link } from "react-router-dom"; 
 import styled from "styled-components"; 
 
-  
+
+
+  // not sure when this background is used 
 export const Nav = styled.nav`
   background: #ffb3ff;
   height: 85px;
@@ -11,9 +13,10 @@ export const Nav = styled.nav`
   padding: 0.2rem calc((100vw - 1000px) / 2);
   z-index: 12;
 `;
-  
+
+  // color = when the link is not the one that is clicked on 
 export const NavLink = styled(Link)`
-  color: #808080;
+  color: #808080; 
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -24,6 +27,7 @@ export const NavLink = styled(Link)`
     color: #4d4dff;
   }
 `;
+// active color = when you are clicked on the thing 
   
 export const Bars = styled(FaBars)`
   display: none;

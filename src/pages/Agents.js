@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import '../App.css';
+
+
 
 
 
 const Agents = () => {
-    
+
+
+
         const [savedVoiceLine, setSavedVoiceLine] = useState("")
 
         const [Data, setData] = useState({
@@ -13,6 +18,8 @@ const Agents = () => {
           abilities: '',
           photoUrl: '',
           voiceLine: '',
+          
+
         })
 
         useEffect(() => {
@@ -54,8 +61,12 @@ const Agents = () => {
         return (
 
           
+  
+
+          
 
           <div>
+            
             {/* <button type="randomize" onclick=  >Click me!</button> */}
             <h1> Name: {Data.name}</h1>
             <h1> Role: {Data.role}</h1>
@@ -69,10 +80,8 @@ const Agents = () => {
             </audio>
 
             <h1>Abilities: {Data.abilities}</h1> 
-
-            
-
           
+            
       
           </div>
         );

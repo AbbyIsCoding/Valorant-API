@@ -13,6 +13,7 @@
   }
 }
 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -26,6 +27,15 @@
 
 .App-link {
   color: #61dafb;
+}
+
+
+body {
+  background-color: #acbddf;
+  color: rgb(0, 0, 0);
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
