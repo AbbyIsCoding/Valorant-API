@@ -29,6 +29,22 @@
   color: #61dafb;
 }
 
+.container{
+  display: flex;
+}
+
+.pcontainer {
+  /* border-bottom:1px dotted; */
+  margin-left:10px;
+  margin-right:80px;
+
+  /* width: 300px; whatever width you want */
+}  
+
+.abilcontainer{
+  margin-left:20px;
+  margin-right:20px;
+}
 
 body {
   background-color: #acbddf;
